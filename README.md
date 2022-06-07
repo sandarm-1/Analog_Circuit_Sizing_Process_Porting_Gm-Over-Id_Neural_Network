@@ -73,7 +73,10 @@ And those points (performance metrics Versus Device gm/Id which equates to versu
 ### From there, this is the approach:
 
 * Pre-compute LUTs for your devices on given process, store LUTs.
-* 
+* Design-database (existing library of circuit topologies) shows PERFORMANCE METRICS (UGBW, Gain, etc) for ALL DESIGN POINTS in the DESIGN SPACE.
+* Take 
+
+
 
 
 
