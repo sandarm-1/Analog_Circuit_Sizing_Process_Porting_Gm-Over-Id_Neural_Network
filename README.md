@@ -33,7 +33,7 @@ Image above: Inputs/outputs of a neural network using the performance metrics di
 
 ================
 
-## What has not been done before
+## What has/hasn't been done before
 
 Previous research work using Neural Networks for Analog Circuit sizing did not explore the full design space of the circuit topology under test.
 
