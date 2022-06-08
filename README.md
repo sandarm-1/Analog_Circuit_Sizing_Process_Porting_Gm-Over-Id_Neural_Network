@@ -115,6 +115,7 @@ Benefits:
 * More data, from complete design space, would potentially allow for more accurate models to be developed.
 * Potentially more accurate models could perhaps be able to generalize better to other process nodes.
 * Potential benefit for process porting.
+* Faster overall process, less spice/spectre circuit simulations
 
 
 
