@@ -57,7 +57,7 @@ Again, not possible to explore the whole design space with circuit simulations (
 
 
 
-## Proposed approach: explore design space in the gm/Id domain AND using pre-computed lookup tables / design database.
+## Proposed approach: explore design space in the gm/Id domain AND using pre-computed lookup tables / design database AND using ADT
 
 ### Why gm/Id:
 Smaller search range for gm/Id (5 - 25 instead of 3 orders of magnitude of W).
@@ -71,11 +71,14 @@ Then once that data is available, you have a design database, for a particular t
 
 And those points (performance metrics Versus Device gm/Id which equates to versus W/L) are SIMULATOR-ACCURATE.
 
+### Why using ADT
+ADT does not invoke the circuit simulator to calculate performance specs outputs for every design point input.
+
 ### From there, this is the approach:
 
-* Pre-compute LUTs for your devices on given process, store LUTs.
-* Design-database (existing library of circuit topologies) shows PERFORMANCE METRICS (UGBW, Gain, etc) for ALL DESIGN POINTS in the DESIGN SPACE.
-* Take 
+* Pre-compute LUTs for your devices on given process, store LUTs. This can be done either with ADT or with alternative, open-source characterzation framework such as pyCHAR or code similar to/based on Dr. Boris Murmann code. Sweep whole design space at this point.
+* Calculate output performance metrics for whole design space for circuit topology of interest. Store output performance metris in design database (DC Gain, BW, UGF, etc) for ALL DESIGN POINTS in the DESIGN SPACE. Do this using a tool like ADT without invoking circuit simulator for every design point in the design space.
+* Use this comprehensive dataset to train Neural Network.
 
 
 
@@ -83,5 +86,9 @@ And those points (performance metrics Versus Device gm/Id which equates to versu
 
 ## References
 [[1](https://www.mdpi.com/2079-9292/11/3/435)] Mina R, Jabbour C, Sakr GE. A Review of Machine Learning Techniques in Analog Integrated Circuit Design Automation. Electronics. 2022; 11(3):435. https://doi.org/10.3390/electronics11030435
+
+[[2](http://dx.doi.org/10.1145/3297156.3297160)] Wang, Z.; Luo, X.; Gong, Z. Application of Deep Learning in Analog Circuit Sizing. In Proceedings of the 2018 2nd International Conference on Computer Science and Artificial Intelligence, Shenzhen, China, 8–10 December 2018; pp. 571–575.
+
+[[3](http://dx.doi.org/10.1109/ICCAD45719.2019.8942062)] Hakhamaneshi, K.; Werblun, N.; Abbeel, P.; Stojanovic, V. BagNet: Berkeley Analog Generator with Layout Optimizer Boosted with Deep Neural Networks. In Proceedings of the 2019 IEEE/ACM International Conference on Computer-Aided Design (ICCAD), Westminster, CO, USA, 4–7 November 2019; pp. 1–8.
 
 
