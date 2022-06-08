@@ -37,7 +37,7 @@ Image above: Inputs/outputs of a neural network using the performance metrics di
 
 Previous research work using Neural Networks for Analog Circuit sizing did not explore the full design space of the circuit topology under test.
 
-![image](https://user-images.githubusercontent.com/95447782/172449598-03581459-475b-4cce-91a9-ffd84f4c8e58.png)
+![image](https://user-images.githubusercontent.com/95447782/172623499-993efdc4-3a68-4373-98d6-2ddee7e12694.png)
 
 Image above: Exploration and generalization capabilities of all the studied techniques in the prior state-of-the-art, from [1].
 
