@@ -3,11 +3,45 @@ Research idea, Analog Circuit sizing with Neural Network exploring the whole des
 
 ## What has been done before
 
+At a very high level, sizing Analog Circuits using Neural Networks consists of two main steps:
+1) Generation of training dataset
+2) Training the NN with data from said training dataset and then using the NN to make predictions on new, unseen data.
+
+In the first step, design parameters (such as device dimensions) are fed into a circuit simulator which calculates performance metrics for each design point, i.e. each specific set of design parameters/dimensions.
+
+* Design parameters: Xi = {W1, L1, W2, L2, W3, L3, W4}
+* Performance metrics: Yj = {Ad, Ic, etc}
+
+With this we build a labelled training dataset.
+
+The first step can be represented as follows:
+
+![image](https://user-images.githubusercontent.com/95447782/172617075-1e61ea35-52e7-41ac-8ee0-034e29249635.png)
+
+Image above: Generation of the training dataset using integrated circuit CAD simulators, from [1].
+
+
+In the second step, we feed the Neural Network with performance metrics Yj at the input of the Neural Network and we get predicted design parameters Xi at the output of the Neural Network.
+
+First we do this in a training phase, and once the Neural Network is trained we do it with data that the Neural Network has not seen before, and we expect the Neural Network to give an accurate prediction of device dimensions that correspond to a set of performance metrics.
+
+The second step can be represented as follows:
+
+![image](https://user-images.githubusercontent.com/95447782/172617971-b2b5ce75-4c82-49f1-b87a-db9f467ad28e.png)
+
+Image above: Inputs/outputs of a neural network using the performance metrics directly as features, from [1].
+
+================
+
 Previous research work using Neural Networks for Analog Circuit sizing did not explore the full design space of the circuit topology under test.
+
+To summarize 
 
 ![image](https://user-images.githubusercontent.com/95447782/172449598-03581459-475b-4cce-91a9-ffd84f4c8e58.png)
 
 Image above: Exploration and generalization capabilities of all the studied techniques in the prior state-of-the-art, from [1].
+
+In the figure above, the white space enclosed by a dotted line represents the whole design space, represented in two dimensions, but of course in most cases the design space will be represented by more than two performance metrics.
 
 Existing techniques to generate the dataset for Supervised learning approaches:
 
