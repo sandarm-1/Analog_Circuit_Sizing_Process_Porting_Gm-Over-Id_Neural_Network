@@ -108,7 +108,7 @@ ADT does not invoke the circuit simulator to calculate performance specs outputs
 ## From there, this is the proposed approach:
 
 * Pre-compute LUTs for your devices on given process, store LUTs. This can be done either with ADT or with alternative, open-source characterzation framework such as [pyMOSChar](https://github.com/ashwith/pyMOSChar) or code similar to/based on Dr. Boris Murmann's code. Sweep whole design space at this point.
-* Calculate output performance metrics for whole design space for circuit topology of interest. Store output performance metrics in design database (DC Gain, BW, UGF, etc) for ALL DESIGN POINTS in the DESIGN SPACE. Do this using a tool like [ADT](https://adt.master-micro.com/) without invoking circuit simulator for every design point in the design space. Data from ADT can be exported for further processing and feature engineering.
+* Calculate output performance metrics for whole design space for circuit topology of interest. Store output performance metrics in design database (DC Gain, BW, UGF, etc) for ALL DESIGN POINTS in the DESIGN SPACE. Do this using a tool like [ADT](https://adt.master-micro.com/) without invoking circuit simulator for every design point in the design space. Once the LUTs are generated from spice/spectre circuit simulator, ADT does not invoke spice/spectre simulator any more and calculates circuit performance metrics directly from pre-computed LUTs, including process technology information, corners, etc. Data from ADT can be exported for further processing and feature engineering.
 
 ![image](https://user-images.githubusercontent.com/95447782/172821917-5e5acb6a-2ac1-4643-bfc1-2800213d2953.png)
 
