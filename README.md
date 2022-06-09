@@ -107,23 +107,29 @@ ADT does not invoke the circuit simulator to calculate performance specs outputs
 
 ## From there, this is the proposed approach:
 
-* Pre-compute LUTs for your devices on given process, store LUTs. This can be done either with ADT or with alternative, open-source characterzation framework such as pyCHAR or code similar to/based on Dr. Boris Murmann code. Sweep whole design space at this point.
-* Calculate output performance metrics for whole design space for circuit topology of interest. Store output performance metris in design database (DC Gain, BW, UGF, etc) for ALL DESIGN POINTS in the DESIGN SPACE. Do this using a tool like ADT without invoking circuit simulator for every design point in the design space.
-* Use this comprehensive dataset to train Neural Network. Overall dataset could be split in training, cross-validation and test set. The whole design space is available but not all has to be shown to the Neural Network during training.
+* Pre-compute LUTs for your devices on given process, store LUTs. This can be done either with [ADT](https://adt.master-micro.com/) or with alternative, open-source characterzation framework such as [pyMOSChar](https://github.com/ashwith/pyMOSChar) or code similar to/based on Dr. Boris Murmann's code. Sweep whole design space at this point.
+* Calculate output performance metrics for whole design space for circuit topology of interest. Store output performance metrics in design database (DC Gain, BW, UGF, etc) for ALL DESIGN POINTS in the DESIGN SPACE. Do this using a tool like ADT without invoking circuit simulator for every design point in the design space. Data from ADT can be exported for further processing and feature engineering.
 
-Benefits:
-* More data, from complete design space, would potentially allow for more accurate models to be developed.
-* Potentially more accurate models could perhaps be able to generalize better to other process nodes.
-* Potential benefit for process porting.
+![image](https://user-images.githubusercontent.com/95447782/172821917-5e5acb6a-2ac1-4643-bfc1-2800213d2953.png)
+
+* Use this comprehensive dataset to train Neural Network. Split overall dataset in training, cross-validation and test set. The whole design space is available but not all has to be shown to the Neural Network during training.
+**Benefits for analog circuit sizing/re-sizing/process porting:**
+* More data, from complete design space, would potentially allow for more accurate Neural Network based models to be developed.
+* The advantage for Neural Network training comes from the fact that the generated dataset is larger, more comprehensive and representative of the whole design space. The training set could be a region such as 60% of the whole design space. With ADT one could generate around 100K points or larger datasets in an efficient way. In [2], 20.000 datapoints were used while paper [3] only used 9.000 and the size of the dataset is generally constrained by the time-consumint spice/spectre simulations.
+* Potentially more accurate models would be able to generalize better to other process nodes.
+* Potential benefit for efficient process porting.
 * Faster overall process, less spice/spectre circuit simulations
 
+**Why
 
 
 ## References
 [[1](https://www.mdpi.com/2079-9292/11/3/435)] Mina R, Jabbour C, Sakr GE. A Review of Machine Learning Techniques in Analog Integrated Circuit Design Automation. Electronics. 2022; 11(3):435. https://doi.org/10.3390/electronics11030435
 
-[[2](http://dx.doi.org/10.1145/3297156.3297160)] Wang, Z.; Luo, X.; Gong, Z. Application of Deep Learning in Analog Circuit Sizing. In Proceedings of the 2018 2nd International Conference on Computer Science and Artificial Intelligence, Shenzhen, China, 8–10 December 2018; pp. 571–575.
+[[2]([http://dx.doi.org/10.1145/3297156.3297160](http://dx.doi.org/10.1109/ISPACS.2017.8266553)] Fukuda, M.; Ishii, T.; Takai, N. OP-AMP sizing by inference of element values using machine learning. In Proceedings of the 2017 International Symposium on Intelligent Signal Processing and Communication Systems (ISPACS), Xiamen, China, 6–9 November 2017; pp. 622–627.
 
-[[3](http://dx.doi.org/10.1109/ICCAD45719.2019.8942062)] Hakhamaneshi, K.; Werblun, N.; Abbeel, P.; Stojanovic, V. BagNet: Berkeley Analog Generator with Layout Optimizer Boosted with Deep Neural Networks. In Proceedings of the 2019 IEEE/ACM International Conference on Computer-Aided Design (ICCAD), Westminster, CO, USA, 4–7 November 2019; pp. 1–8.
+[[3](http://dx.doi.org/10.1145/3297156.3297160)] Wang, Z.; Luo, X.; Gong, Z. Application of Deep Learning in Analog Circuit Sizing. In Proceedings of the 2018 2nd International Conference on Computer Science and Artificial Intelligence, Shenzhen, China, 8–10 December 2018; pp. 571–575.
+
+[[4](http://dx.doi.org/10.1109/ICCAD45719.2019.8942062)] Hakhamaneshi, K.; Werblun, N.; Abbeel, P.; Stojanovic, V. BagNet: Berkeley Analog Generator with Layout Optimizer Boosted with Deep Neural Networks. In Proceedings of the 2019 IEEE/ACM International Conference on Computer-Aided Design (ICCAD), Westminster, CO, USA, 4–7 November 2019; pp. 1–8.
 
 
