@@ -1,4 +1,4 @@
-# Analog Circuit Sizing/Re-Sizing/Process Porting in the gm/Id domain with Neural Network
+# Automating Analog Circuit Sizing/Re-Sizing/Process Porting in the gm/Id domain with Neural Network
 Research/project idea. Analog Circuit sizing (or re-sizing, or process porting), in the gm/Id domain, assisted by Neural Network and gm/Id space exploration tools, exploring the complete design space.
 
 ## What has been done before
