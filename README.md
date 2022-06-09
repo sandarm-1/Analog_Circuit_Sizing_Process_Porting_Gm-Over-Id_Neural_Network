@@ -123,9 +123,9 @@ ADT does not invoke the circuit simulator to calculate performance specs outputs
 * Potential benefit for efficient process porting.
 * Faster overall process, less spice/spectre circuit simulations
 
-**Why use a Neural Network if we alrady have access to the complete design space:**
+**Why use a Neural Network if we already have access to the complete design space:**
 * The wider range goal is to be able to investigate accurate Neural Network models that can predict circuit design parameters from target performance metrics, after a learning process, and be able to transfer this learning to other process technologies.
-* Obtaining a larger dataset allows training of more accurate models.
+* In Machine Learning generally data is king, meaning that working with larger datasets generally allows training of more accurate models.
 
 
 ## References
